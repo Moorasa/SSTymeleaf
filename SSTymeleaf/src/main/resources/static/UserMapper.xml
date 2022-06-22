@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.SSTymeleaf.mapper.UserMapper">
+
+	<!-- 로그인 -->
+	<select id="getUserAccount"
+		resultType="com.SSTymeleaf.DTO.UserVo">
+		SELECT * FROM TB_USER WHERE USER_ID = #{userId}
+	</select>
+	
+    <!-- 회원가입 -->
+	<insert id="saveUser" parameterType="com.SSTymeleaf.DTO.UserVo">
+		INSERT INTO
+		TB_USER(USER_ID,USER_PW,USER_AUTH, APPEND_DATE, UPDATE_DATE)
+		VALUES(#{userId},#{userPw},#{userName},#{appendDate},#{updateDate});
+	</insert>
+</mapper>
